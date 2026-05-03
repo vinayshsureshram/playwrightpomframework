@@ -13,6 +13,9 @@ await page.getByRole('button', { name: 'Login', exact: true }).click();
 //Assert that the user successfully logged in
 await expect (page).toHaveTitle('Bank Dashboard – SecureBank Demo | QA Playground');
 
+//Take a screenshot
+await page.screenshot({ path: './screenshots/successful-login.png' });
+
 //Handle the log out alert dialog
 page.once('dialog', async dialog => {
   console.log(`Dialog message: ${dialog.message()}`); // "Are you sure you want to logout?"
@@ -38,5 +41,8 @@ await page.getByRole('button', { name: 'Login', exact: true }).click();
 //Assert that the alert message is displayed with the correct text
 const alertMessage = page.locator('#alert-message');
 await expect(alertMessage).toHaveText('⚠️ Invalid username or password. Please try again.');
+
+//Take a screenshot
+await page.screenshot({ path: './screenshots/incorrect-login.png' });
 
 });

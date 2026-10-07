@@ -31,7 +31,7 @@ await expect(page).toHaveTitle('QA Playground - Master Automation Testing');
 
 test('Incorrect login attempt', async ({page}) => {
 
-//Navigate to the banking app
+//Navigate to the banking app and click on Sign In
 await page.goto('https://www.qaplayground.com/bank');
 //Enter credentials and click on login button
 await page.getByTestId('login-username-input').fill('standard_user');
